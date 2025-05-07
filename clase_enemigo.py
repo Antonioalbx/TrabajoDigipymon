@@ -8,4 +8,4 @@ class Enemigo:
          self.cantidad_digipymon += 1
 
     
-    print("macarena")
+    

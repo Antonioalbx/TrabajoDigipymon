@@ -14,5 +14,3 @@ def menu():
     print("6.Consultar digypimon") 
     print("7.Salir")
 
-
-menu()

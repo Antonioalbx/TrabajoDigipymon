@@ -121,6 +121,83 @@ def menu():
     
     return menu
 
+def buscar_digipymon(self,jugador,inventario):"""Funcion buscar digipymon"""
+self.jugador = jugador
+self.inventario = inventario
+digipymon = generar_digipymon_aleatorio()
+print(digipymon)
+porcentaje_captura = 100 - (digipymon.nivel * 10)
+print(f"Porcentaje de captura de capturar al digipymon: " + porcentaje_captura )
+opcion = print("Quieres Capturar al digipymon: (s/n) ")
+    
+if opcion == "s":
+    if inventario.objetos["Digipyballs"] >= 1:
+        print(inventario.objetos["Digipyballs"])
+        
+        if jugador.cantidad_digipymon < 6:
+            print(f"Puedes empezar a capturar al digipymon: " + " propabilidad de capturar al digipymon " + porcentaje_captura)
+     
+            captura = random.radint(1,100) <= porcentaje_captura
+     
+            if captura:
+             jugador.cantidad_digipymon += 1
+             print ("Capturaste a " + [digipymon])
+            else: 
+             print ("No has conseguido capturar a " + [digipymon])
+        else: 
+            print ("Estas en tu límite no puedes capturar mas Digipymon")
+    else:
+        ("No tienes digipyballs no puedes capturar")
+elif opcion == "n":
+    ("Has huido por que no querias capturar al digipymon (o eres un cagao)")
+
+def usar_item(jugado):
+    Jugador = Jugador()
+    Jugador.mostrar_inventario()
+
+    if not Jugador.objetos:
+        return
+    
+    seleccionar_objeto = ()
+
+    if seleccionar_objeto in Jugador.objetos:
+        if Jugador.objetos[seleccionar_objeto] > 0:
+            print(f"Has usado {seleccionar_objeto} ")
+        else:
+            print("No puedes usar ese item ")
+            return
+    else:
+        print("El item no esta en el inventario")
+        return 
+    
+    if seleccionar_objeto == "Digipyballs":
+        print("No puedes usar este objeto en un Digipymon directamente")
+        return
+    if Jugador.lista_digipymon:
+        seleccionar_digipymon = Jugador.lista_digipymon[0]
+        if seleccionar_objeto == "Cocaina":
+            seleccionar_digipymon.vida + 10
+            print(f"{seleccionar_digipymon} ha recuperado 20 de vida ")
+        elif seleccionar_objeto == "MK677":
+            seleccionar_digipymon.ataque + 7
+            print(f"{seleccionar_digipymon} ha aumentado su ataque en 7 ")
+        else:
+            print("Este objeto no se encuentra disponible")
+            return
+        
+        if Jugador.usar_objeto(seleccionar_objeto):
+            print(f"Has usado el objeto {seleccionar_objeto} ")
+        else:
+            print(f"No se ha podido usar el objeto {seleccionar_objeto}")
+
+        if seleccionar_objeto in Jugador.objetos:
+            if Jugador.objetos[seleccionar_objeto] > 0:
+                print(f"Te quedan {Jugador.objetos[seleccionar_objeto]}")
+            else:
+                print(f"Ya no te quedan más objetos {seleccionar_objeto}")
+        else:
+            print("No tienes Digipymons en tu equipo ")
+         
 def main():
     
     jugador = Jugador(lista_nombre.Obtener_nombre_entrenador)

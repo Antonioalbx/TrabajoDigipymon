@@ -13,6 +13,17 @@ jugador = Jugador()
 digypimon = Digipymon()
 inventario = Inventario()
 
+def generar_digipymon_aleatorio():
+    vida = random.radiant(10 , 20)
+    ataque = random.radiant(1 , 10)
+    nivel = random.radiant(1 , 3)
+    tipo = random.choice("fuego, agua y planta")
+    
+    lista_nombres = ListaNombres()
+    nombre = lista_nombres.obtener_nombre_digipymon()
+    digypimon = Digipymon(nombre,vida,ataque,nivel,tipo)
+    
+    return digypimon
 
 def combate():
     print("Te vas a enfrentar a un entrenador enemigo")
@@ -31,3 +42,5 @@ def menu():
     print("6.Consultar digypimon") 
     print("7.Salir")
 
+
+    

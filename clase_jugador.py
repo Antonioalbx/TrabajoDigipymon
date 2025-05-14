@@ -12,6 +12,6 @@ class Jugador:
         for digipon in self.lista_digipymon:
             print("Este es tu digipypon " + digipon)
     def consultar_digicoin(self):
-        print("Estas son tus monedas " + str(self.digicoins) )
+        print("Estas son tus monedas " + str(self.digicoins) ) 
 
 

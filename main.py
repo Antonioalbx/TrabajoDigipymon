@@ -1,6 +1,23 @@
+import random
+import time
+
+from clase_listanombres import ListaNombres
+from clase_enemigo import Enemigo
+from clase_jugador import Jugador
+from clase_digipymon import Digipymon
+from clase_inventario import Inventario
+
+listanombre = ListaNombres()
+enemigos = Enemigo()
+jugador = Jugador()
+digypimon = Digipymon()
+inventario = Inventario()
 
 
-
+def combate():
+    print("Te vas a enfrentar a un entrenador enemigo")
+    
+    
 
 
 

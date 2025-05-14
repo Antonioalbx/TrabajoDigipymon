@@ -7,11 +7,7 @@ from clase_jugador import Jugador
 from clase_digipymon import Digipymon
 from clase_inventario import Inventario
 
-listanombre = ListaNombres()
-enemigos = Enemigo()
-jugador = Jugador()
-digypimon = Digipymon()
-inventario = Inventario()
+
 
 def generar_digipymon_aleatorio():
     vida = random.radiant(10 , 20)
@@ -27,7 +23,13 @@ def generar_digipymon_aleatorio():
 
 def combate():
     print("Te vas a enfrentar a un entrenador enemigo")
-    
+    lista_nombre = ListaNombres()
+    enemigos = Enemigo(lista_nombre.obtener_nombre_entrenador())
+    print("Te vas a enfrentar a un entrenador enemigo")
+    print("Te toca enfrentarte a " + enemigos.nombre)
+    opcionpelea = input("¿Quieres pelear contra el? si/no")
+    if opcionpelea == "si":
+
     
 
 

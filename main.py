@@ -81,6 +81,36 @@ def menu():
     
     return menu
 
+def buscar_digipymon(self,jugador,inventario):
+    self.jugador = jugador
+    self.inventario = inventario
+    digipymon = generar_digipymon_aleatorio()
+    print(digipymon)
+    porcentaje_captura = 100 - (digipymon.nivel * 10)
+    print(f"Porcentaje de captura de capturar al digipymon: " + porcentaje_captura )
+    opcion = print("Quieres Capturar al digipymon: (s/n) ")
+    
+    if opcion == "s":
+        if inventario.objetos["Digipyballs"] >= 1:
+            print(inventario.objetos["Digipyballs"])
+            
+            if jugador.cantidad_digipymon < 6:
+                print(f"Puedes empezar a capturar al digipymon: " + " propabilidad de capturar al digipymon " + porcentaje_captura)
+         
+                captura = random.radint(1,100) <= porcentaje_captura
+         
+                if captura:
+                 jugador.cantidad_digipymon += 1
+                 print ("Capturaste a " + [digipymon])
+                else: 
+                 print ("No has conseguido capturar a " + [digipymon])
+            else: 
+                print ("Estas en tu límite no puedes capturar mas Digipymon")
+        else:
+            ("No tienes digipyballs no puedes capturar")
+    elif opcion == "n":
+        ("Has huido por que no querias capturar al digipymon (o eres un cagao)")
+         
 def main():
     
     jugador = Jugador(lista_nombre.Obtener_nombre_entrenador)

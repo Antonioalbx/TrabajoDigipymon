@@ -42,14 +42,15 @@ def digishop(jugador, inventario):
             
         
 
-def generar_digipymon_aleatorio():
-    vida = random.radiant(10 , 20)
-    ataque = random.radiant(1 , 10)
-    nivel = random.radiant(1 , 3)
-    tipo = random.choice("fuego, agua y planta")
+def generar_digipymon_aleatorio(lista_nombre):
+    vida = random.randint(10 , 20)
+    ataque = random.randint(1 , 10)
+    nivel = random.randint(1 , 3)
+    listatipo = ["fuego", "agua", "planta"]
+    tipo = random.choice(listatipo)
     
-    lista_nombres = ListaNombres()
-    nombre = lista_nombres.obtener_nombre_digipymon()
+    
+    nombre = lista_nombre.obtener_nombre_digipymon()
     digypimon = Digipymon(nombre,vida,ataque,nivel,tipo)
     
     return digypimon
@@ -121,13 +122,14 @@ def menu():
     
     return menu
 
-def buscar_digipymon(self,jugador,inventario):"""Funcion buscar digipymon"""
-self.jugador = jugador
-self.inventario = inventario
-digipymon = generar_digipymon_aleatorio()
+def buscar_digipymon(jugador, inventario, lista_nombre):"""Funcion buscar digipymon"""
+inventario = Inventario()
+lista_nombre = ListaNombres()
+jugador = ()
+digipymon = generar_digipymon_aleatorio(lista_nombre)
 print(digipymon)
 porcentaje_captura = 100 - (digipymon.nivel * 10)
-print(f"Porcentaje de captura de capturar al digipymon: " + porcentaje_captura )
+print(f"Porcentaje de captura de capturar al digipymon: " + str(porcentaje_captura) )
 opcion = print("Quieres Capturar al digipymon: (s/n) ")
     
 if opcion == "s":
@@ -137,7 +139,7 @@ if opcion == "s":
         if jugador.cantidad_digipymon < 6:
             print(f"Puedes empezar a capturar al digipymon: " + " propabilidad de capturar al digipymon " + porcentaje_captura)
      
-            captura = random.radint(1,100) <= porcentaje_captura
+            captura = random.randint(1,100) <= porcentaje_captura
      
             if captura:
              jugador.cantidad_digipymon += 1
@@ -151,17 +153,16 @@ if opcion == "s":
 elif opcion == "n":
     ("Has huido por que no querias capturar al digipymon (o eres un cagao)")
 
-def usar_item(jugado):
-    Jugador = Jugador()
-    Jugador.mostrar_inventario()
+def usar_item(jugador):
+    jugador.mostrar_inventario()
 
-    if not Jugador.objetos:
+    if not jugador.objetos:
         return
     
     seleccionar_objeto = ()
 
     if seleccionar_objeto in Jugador.objetos:
-        if Jugador.objetos[seleccionar_objeto] > 0:
+        if jugador.objetos[seleccionar_objeto] > 0:
             print(f"Has usado {seleccionar_objeto} ")
         else:
             print("No puedes usar ese item ")
@@ -198,7 +199,8 @@ def usar_item(jugado):
         else:
             print("No tienes Digipymons en tu equipo ")
          
-def main():
-    
-    jugador = Jugador(lista_nombre.Obtener_nombre_entrenador)
+def main(enemigos, lista_nombre, digipymon, inventario):
+    print("En este mundo de digipymones, entra un nuevo entrenador de digipymones, que empieza una nueva aventura; dinos cual es tu nombre")
+    jugador = Jugador(lista_nombre.obtener_nombre_entrenador)
+    print("Saludos " + {jugador.nombre}) 
     

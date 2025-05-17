@@ -1,10 +1,10 @@
-class Digipymon:"""Clase Digipymon definida"""
-def __init__(self,nombre,vida,ataque,tipo,nivel):
-    self.nombre = nombre
-    self.vida = vida
-    self.ataque = ataque
-    self.tipo = tipo
-    self.nivel = nivel
+class Digipymon:
+    def __init__(self,nombre,vida,ataque,nivel,tipo):
+        self.nombre = nombre
+        self.vida = vida
+        self.ataque = ataque
+        self.nivel = nivel
+        self.tipo = tipo
     
-def __str__(self):
-    return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, tipo: {self.ataque}, nivel: {self.nivel} "
+    def __str__(self):
+        return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, nivel: {self.nivel}, tipo: {self.tipo} "

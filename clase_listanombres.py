@@ -15,5 +15,5 @@ class ListaNombres:
     def obtener_nombre_digipymon(self):
         return random.choice(self.lista_nombres_digipymons)
           
-    def Obtener_nombre_entrenador(self):
+    def obtener_nombre_entrenador(self):
         return random.choice(self.lista_nombres_entrenadores)

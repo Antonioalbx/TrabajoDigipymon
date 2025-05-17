@@ -9,9 +9,10 @@ class Inventario:
             self.objetos[nombre] = cantidad       
         
     def usar_objeto(self,nombre):
-        self.objetos[nombre] - 1
+        if nombre in self.objetos and self.objetos[nombre] > 0:
+            self.objetos[nombre] -= 1
     
-        if self.objetos[nombre] == 0 :
-            del self.objetos[nombre]
+            if self.objetos[nombre] == 0 :
+                del self.objetos[nombre]
         
        

@@ -7,10 +7,10 @@ class Jugador:
     def añadir_digipymon(self, digipymon):
         self.lista_digipymon.append(digipymon)
         self.cantidad_digipymon += 1
-        print("Has añadido a " + digipymon + "a tus digipymones")
+        print("Has añadido a " + str(digipymon) + "a tus digipymones")
     def consultar_digipymon(self):
-        for digipon in self.lista_digipymon:
-            print("Este es tu digipypon " + digipon)
+        for digipymon in self.lista_digipymon:
+            print("Este es tu digipypon " + str(digipymon))
     def consultar_digicoin(self):
         print("Estas son tus monedas " + str(self.digicoins) ) 
 

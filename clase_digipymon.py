@@ -8,3 +8,4 @@ class Digipymon:
     
     def __str__(self):
         return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, nivel: {self.nivel}, tipo: {self.tipo} "
+# esta clase Digipymon lo que hace es pedir unos valores por parámetros y luego los devuelve son el str

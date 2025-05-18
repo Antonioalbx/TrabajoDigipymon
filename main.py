@@ -11,6 +11,7 @@ from clase_inventario import Inventario
 def digishop(jugador, inventario):
     salir_tienda = True
     while salir_tienda:
+        jugador.consultar_digicoin()
         print("Elige que objeto desea comprar")
         print("1.Digipyballs -----> 5 digicoins")
         print("2.Cocaina -------> 3 digicoins -----> 10 puntos de vida")
@@ -20,20 +21,20 @@ def digishop(jugador, inventario):
         if opciontienda == "1":
             if jugador.digicoins >= 5:
                 print("Has comprado digipyballs")
-                jugador.digicoins - 5
+                jugador.digicoins -= 5
                 inventario.añadir_objeto("digipyballs", 1)
             else:
                 print("Eres un pobre")
         if opciontienda == "2":
             print("Has comprado cocaina")
             if jugador.digicoins >= 3:
-                jugador.digicoins - 3
+                jugador.digicoins -= 3
                 inventario.añadir_objeto("cocaina", 1)
             else:
                 print("Eres un pobre")
         if opciontienda == "3":
             if jugador.digicoins >= 4:
-                jugador.digicoins - 4
+                jugador.digicoins -= 4
                 print("Has comprado mk677")
                 inventario.añadir_objeto("mk677", 1)
             else:
@@ -42,7 +43,8 @@ def digishop(jugador, inventario):
             print("Estas saliendo de la tienda")
             time.sleep(3)
             salir_tienda = False
-            
+# Esta función digishop lo que hace es que según las monedad que tú tengas; puedas comprar ciertos items para que los puedas usar en tus 
+# digipymons dandoles ciertos beneficios que eso te lo añade en el inventario y los podras usar cuando quieras    
         
 
 def generar_digipymon_aleatorio(lista_nombre):
@@ -57,7 +59,8 @@ def generar_digipymon_aleatorio(lista_nombre):
     digypimon = Digipymon(nombre,vida,ataque,nivel,tipo)
     
     return digypimon
-
+# Esta función generar_digipymon_aleatorio lo que hace es generarte ciertas estadisticas aleatorias para poder crear digipymons generados
+# automáticamente, y el nombre lo coge del método de la clase ListaNombre obtener_nombre_digipymon
 def combate(jugador):
     lista_nombre = ListaNombres()
     enemigos = Enemigo(lista_nombre.obtener_nombre_entrenador())
@@ -107,7 +110,12 @@ def combate(jugador):
         jugador.digicoins -= 1
         if jugador.digicoins < 0:
            jugador.digicoins = 0
-
+# Esta función combate lo que hace es primero generarte el nombre de tu enemigo y tu decides si quieres pelear con el o no; si decides no 
+# pelear con él te quita una digicoin; pero si peleas con el; primero lo que hará sera generarle al enemigo los digipymons según cuantos el 
+# jugador tenga y luego segun la vida del digipymon que tenga el jugador podrá pelear o no; si tiene vida ya lo que hace es comprobar el 
+# ataque del digipymon del jugador con el del enemigo para saber si gana o pierde el combate y se va acumulando las victorias y derrotas
+# y cuando terminen de pelear todos los combates de todos los digipymons se decide si ha ganado el jugador o a perdidor; en base a eso;
+# se le quitan digicoins o se le dan
         
     
 
@@ -124,7 +132,7 @@ def menu():
     print("7.Salir")
     
     return menu
-
+# Esta función menu lo que hace es imprimirte el menu del juego
 def buscar_digipymon(jugador, inventario, lista_nombre):
     digipymon = generar_digipymon_aleatorio(lista_nombre)
     print(digipymon)
@@ -152,7 +160,9 @@ def buscar_digipymon(jugador, inventario, lista_nombre):
             ("No tienes digipyballs no puedes capturar")
     elif opcion == "n":
         ("Has huido por que no querias capturar al digipymon (o eres un cagao)")
-
+# Esta función buscar_digipymon lo que hace es que te genera una posibilidad de captura de un digipymon aleatorio y ya tu decides si quieres 
+# capturarlo o no; si lo intentas capturar ya que no sabes si lo vas a conseguir; te quita una digiball siempre; aunque no lo captures y podrás 
+# intentar capturar digipymons hasta tener 5; despues de eso no podras capturar
 def usar_item(jugador, inventario):
     print(inventario.objetos)
 
@@ -188,7 +198,8 @@ def usar_item(jugador, inventario):
         else:
             print("Este objeto no se encuentra disponible")
             return
-           
+# Esta función usar_item lo que hace es usar los items que ya tengas comprados o los que te dan al inicio y te va quitando 
+# ese objeto con la función usar_objeto          
 def main():
     lista_nombre = ListaNombres()
     enemigos = Enemigo(lista_nombre.obtener_nombre_entrenador())
@@ -224,5 +235,8 @@ def main():
         elif opcion == "7":
             print("Gracias por jugar a nuestro juego; te espero pronto")
             salir = False
-main()      
+# Esta función main lo que hace es crear al principio una mini historia del juego; te genera un nombre aleatorio y te genera un digipymon aleatorio
+# y tambien te da ciertos items; y luego llama a las funciones implementadas arriba según lo que pida el usuario según la opción elegida en el menu
+main()   
+# Esto : main() lo que hace es llamar a la función main y ejecutarla
 

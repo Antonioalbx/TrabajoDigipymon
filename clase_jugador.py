@@ -13,5 +13,9 @@ class Jugador:
             print("Este es tu digipypon " + str(digipymon))
     def consultar_digicoin(self):
         print("Estas son tus monedas " + str(self.digicoins) ) 
+        
+# Esta clase Jugador lo que hace es pedir un nombre por parámetros y tiene una lista vacia; una cantidad de digipymons iniciada a 0
+# y digicoins a 10; la método de añadir_digipymons para que guarde el digipymon en la lista y sume uno a la cantidad y te imprima un texto
+# y el método consultar_digicoin que te devuelve un print con las monedas que tienes
 
 
